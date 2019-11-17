@@ -2,11 +2,12 @@
 
 namespace Ipssi\Evaluation;
 
-class Forme extends Element{
+abstract class Forme extends Element{
 
-    public function construct(float $x, float $y, Couleur $couleur){
-        parent::__construct($x,$y,$couleur);
+    public function construct(float $longueur, float $largeur, Couleur $couleur){
+        parent::__construct($longueur, $largeur, $couleur);
     }
+   
 }
 
 ?>

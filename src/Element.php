@@ -2,29 +2,39 @@
 
 namespace Ipssi\Evaluation;
 
-class element 
+abstract class Element 
 {
 
-    private $height;
+    protected $longueur;
+    protected $largeur;
+    protected $couleur;
 
-    private $width;
 
-
-    public function __construct(float $height, float $width)
+    public function __construct(float $longueur, float $largeur, Couleur $couleur)
     {
-        $this->height = $height;
-        $this->width = $width;
+        if ($longueur < 0 || $largeur < 0){
+            echo "Erreur la longueur et la largeur ne peuvent pas être inférieure à 0";
+            echo die;
+        }
+
+        $this->longueur = $longueur;
+        $this->largeur = $largeur;
+        $this->couleur = $couleur;
 
     }
 
-    public function getHeight(): float
+    public function getLongueur(): float
     {
-        return $this->height;
+        return $this->longueur;
     }
 
-    public function getWidth(): float
+    public function getLargeur(): float
     {
-        return $this->width;
+        return $this->largeur;
+    }
+
+    public function getCouleur(): Couleur{
+        return $this->couleur;
     }
     
 

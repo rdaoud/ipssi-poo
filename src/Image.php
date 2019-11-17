@@ -2,23 +2,23 @@
 
 namespace Ipssi\Evaluation;
 
-class Image extends Element{
+class Image extends Element 
+{
 
-    public function construct(float $x, float $y, Couleur $couleur){
-        parent::__construct($x,$y,$couleur);
+    public function __construct(float $longueur, float $largeur, Couleur $couleur){
+        parent::__construct($longueur, $largeur, $couleur);
     }
 
-    public function getAbcisse(): float{
-        return $this->$x;
+    public function toString(): String{
+        $image .= "Type de l'élément : Image" . PHP_EOL;
+        $image .= PHP_EOL;
+        $image .= "Taille de l'élément" . PHP_EOL;
+        $image .= 'Longueur : ' . $this->getLongueur() . PHP_EOL;
+        $image .= 'Largeur : ' . $this->getLargeur() . PHP_EOL;
+        $image .= PHP_EOL;
+        $image .= "Couleur de l'élément" . PHP_EOL;
+        $image .= $this->getCouleur()->toString() . PHP_EOL;
+        return $image;  
     }
 
-    public function getOrdonne(): float{
-        return $this->$y;
-    }
-
-    public function getCouleur(): Couleur{
-        return $this->$couleur;
-    }
 }
-
-?>

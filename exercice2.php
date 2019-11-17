@@ -1,25 +1,28 @@
 <?php
-use \Ipssi\Evaluation\document;
-use \Ipssi\Evaluation\RGB;
 
 namespace Ipssi\Evaluation;
-
 require_once('vendor/autoload.php');
 
-use Ipssi\Evaluation\Useless;  
 
-new Useless();
+$document = [ 
+new Document(new Texte(50, 10, new Couleur(0, 0, 0)), new Couleur(0, 0, 0), 9, 23),
+new Document(new Image(30, 10, new Couleur(10, 10, 10)), new Couleur(20, 20, 20), 30, 10),
+new Document(new Nuage(50, 10, new Couleur(20, 10, 10)), new Couleur(20, 30, 20), 30, 10),
+new Document(new Etoile(70, 10, new Couleur(10, 10, 30)), new Couleur(30, 20, 60), 30, 10),
 
-
-$doc = [ 
-new document(new texte(27, 27), new RGB(255, 0, 0), 23, 23),
- new document(new image(23, 267), new RGB(255, 0, 0), 23, 23),
- new document(new texte(23.2, 7), new RGB(255, 0, 0), 23, 23),
- new document(new image(23, 267), new RGB(255, 0, 0), 23, 23),
 ];
 
-foreach ($doc as $doc) {
-echo $doc->toString();
+$i = 1;
+
+foreach ($document as $doc) {
+    echo "Document " . $i;
+    echo PHP_EOL;
+    echo PHP_EOL;
+    echo $doc->toString();
+    echo PHP_EOL;
+    echo "=====================";
+    echo PHP_EOL;
+    $i++;
 }
 
 ?>
